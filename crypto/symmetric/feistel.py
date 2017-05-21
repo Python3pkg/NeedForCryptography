@@ -44,7 +44,7 @@ class Feistel:
                 else:
                     left, right = self.__hash(left, right, func)
 
-            mapped = map(lambda x: self.__alphabet[x], left + right)
+            mapped = [self.__alphabet[x] for x in left + right]
             ciphertext += ''.join(mapped)
 
         return ciphertext + message[len(ciphertext):]

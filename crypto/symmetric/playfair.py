@@ -22,7 +22,7 @@ class Playfair:
 
     def encrypt(self, text, offset=1):
         text = ''.join([letter for letter in text
-                        if self.__key.has_key(letter)])
+                        if letter in self.__key])
 
         if len(text) % 2 == 1:
             raise ValueError("Text must be of even length!")

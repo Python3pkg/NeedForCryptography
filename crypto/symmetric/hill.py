@@ -17,7 +17,7 @@ class Hill:
 
         self.__alphabet = ''.join(list(OrderedDict.fromkeys(alphabet)))
         self.__modulo = len(self.__alphabet)
-        self.__matrix = [list(map(lambda col: col % self.__modulo, row))
+        self.__matrix = [list([col % self.__modulo for col in row])
                          for row in matrix]
 
     def encrypt(self, text, encryption=True):
@@ -26,7 +26,7 @@ class Hill:
 
         if not encryption:
             matrix = (inv(self.__matrix) * det(matrix)).tolist()
-            matrix = [list(map(lambda col: int(col) % 26, row))
+            matrix = [list([int(col) % 26 for col in row])
                       for row in matrix]
 
         encrypted_vector = dot(matrix, vector).tolist()

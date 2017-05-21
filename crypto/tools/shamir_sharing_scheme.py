@@ -12,7 +12,7 @@ class ShamirSharingScheme:
                              'than all parts count')
 
         rand = SystemRandom()
-        parameters = rand.sample(range(1, secret),
+        parameters = rand.sample(list(range(1, secret)),
                                  subset_parts - 1)
 
         polynom = lambda x: secret + sum(c * (x ** (i + 1)) for i, c
